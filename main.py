@@ -1,4 +1,3 @@
-from re import U
 import util
 from util import logica
 
