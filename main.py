@@ -7,6 +7,7 @@ arqScore=ss.abrirArquivoScore()
 arqUsers=ss.abrirArquivoUsers()
 rodada=0
 score=0
+nJogos = 0 
 def Menu():
     print("-"*35)
     print("Bem-vindo ao meu jokenpô")
@@ -15,7 +16,7 @@ def Menu():
     print("- s : Sair -")
     print("-"*35)
 
-def EscolherObjeto():
+def EscolherObjeto(nRodadas):
     while True:
         print("\n"+"-"*35)
         print("- r : Pedra -")
@@ -31,7 +32,10 @@ def EscolherObjeto():
         else:
             global rodada 
             global score
+            global nJogos
             rodada +=1
+            nJogos = nRodadas
+            print(nJogos)
             adv=l.VerificarObjetoAdversario()
             l.TratarEscolha(eo,adv)
             score=l.verificar(eo,adv,rodada,score)
@@ -39,7 +43,7 @@ def EscolherObjeto():
             print("Pontuação: ",score)
             print("Rodada: ",rodada)
             print("-"*35+"\n")
-            if rodada == 10:
+            if int(rodada) >= int(nJogos):
                 ss.gravar(arqScore,arqUsers,score)
                 rodada = 0
                 score = 0
@@ -63,16 +67,11 @@ while True:
         print("Opção Inválida")
         continue
     if op == 'j':
+        nRodada = input("Qunatas rodadas? ")
         print("Começando o jogo:")
-        EscolherObjeto()
+        EscolherObjeto(nRodada)
     if op == 'm':
         mostrarMaiorScore()
     if op == 's':
         print("fechando o jogo")
         break
-
-
-'''
-print("Olá mundo")
-player = input("Digite a sua opção: ")
-print(player)'''

@@ -95,19 +95,4 @@ class Arquivo():
                     arqUsers.writelines(linesUsers)
                     arqUsers.close()
                     break
-            '''else:
-                if int(self.score)<pontos:
-
-                    self.score = str(pontos)
-                    os.chdir(r'C:/Users/'+user+'/Documents/jokenpo/res/score')
-                    cc = os.getcwd()+"/scores.txt"
-                    arqScore = open(cc,'w')
-                    score=arqScore.writelines(self.score+"\n")
-                    arqScore.close()
-
-                    os.chdir(r'C:/Users/'+user+'/Documents/jokenpo/res/user')
-                    cc = os.getcwd()+"/users.txt"
-                    arqUsers = open(cc,'w')
-                    users=arqUsers.writelines(self.user+"\n")
-                    arqUsers.close()'''
         return
