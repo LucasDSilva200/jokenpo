@@ -3,7 +3,8 @@ from util import logica
 
 l = logica.Game()
 ss = util.Arquivo()
-arq=ss.abrirArquivo()
+arqScore=ss.abrirArquivoScore()
+arqUsers=ss.abrirArquivoUsers()
 rodada=0
 score=0
 def Menu():
@@ -38,14 +39,16 @@ def EscolherObjeto():
             print("Pontuação: ",score)
             print("Rodada: ",rodada)
             print("-"*35+"\n")
-            if rodada == 10 :
-                ss.gravar(arq,score)
+            if rodada == 10:
+                ss.gravar(arqScore,arqUsers,score)
+                rodada = 0
+                score = 0
                 break
 def mostrarMaiorScore():
     while True:
         print("-"*35)
-        print("O maior Pontuador: ",arq[1])
-        print("O maior score: ",arq[0])
+        print("O maior Pontuador: ",arqUsers[0])
+        print("O maior score: ",arqScore[0])
         print("- v : Voltar -")
         print("-"*35)
         v = input("Voltar? ")

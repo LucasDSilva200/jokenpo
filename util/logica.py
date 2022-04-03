@@ -30,8 +30,8 @@ class Game():
             print("O adversário escolheu Tesoura\n")
         if object2 == 'p':
             print("O adversário escolheu Papel\n")
+        
         time.sleep(2)      
-    
     def verificar(self,escolhaplayer,escolhadversario,rodada,pontos):
         rodadatual=rodada
         score=pontos
